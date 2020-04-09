@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.bloomreach</groupId>
+        <artifactId>brxm-jwt-sso</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>brxm-jwt-sso-cms</artifactId>
+    <packaging>war</packaging>
+    <name>JWT SSO implementation for brXM CMS</name>
+    <description>JWT SSO implementation for brXM CMS</description>
+
+    <properties>
+        <junit-jupiter.version>5.6.0</junit-jupiter.version>
+        <mockito-core.version>3.3.0</mockito-core.version>
+        <assertj.version>3.15.0</assertj.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>brxm-jwt-sso-cms-dependencies</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+        </dependency>
+        <!--  Test scoped dependencies-->
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <finalName>cms</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <BloomReach-Release-Version>${hippo.release.version}</BloomReach-Release-Version>
+                            <Project-Version>${project.version}</Project-Version>
+                            <Project-Build>${buildNumber}</Project-Build>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <configuration>
+                    <configuration>
+                        <type>runtime</type>
+                    </configuration>
+                    <container>
+                        <type>remote</type>
+                    </container>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.onehippo.cms.l10n</groupId>
+                <artifactId>hippo-cms-l10n-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

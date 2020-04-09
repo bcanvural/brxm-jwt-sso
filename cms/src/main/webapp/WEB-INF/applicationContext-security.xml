@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+
+
+                           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd"
+             profile="jwt_auth">
+
+    <http pattern="/console/**" security="none"/>
+    <http pattern="/angular/**" security="none"/>
+    <http pattern="/skin/**" security="none"/>
+    <http pattern="/ckeditor/**" security="none"/>
+    <http pattern="/repository/**" security="none"/>
+    <http pattern="/ws/**" security="none"/>
+    <http pattern="/ping/**" security="none"/>
+    <http pattern="/**.svg" security="none"/>
+
+    <http pattern="/**" entry-point-ref="jwtAuthenticationEntryPoint" create-session="stateless">
+        <csrf disabled="true"/>
+        <custom-filter before="FORM_LOGIN_FILTER" ref="jwtAuthenticationFilter"/>
+        <headers>
+            <frame-options policy="SAMEORIGIN"/>
+        </headers>
+    </http>
+
+    <beans:bean id="jwtAuthenticationEntryPoint" class="com.bloomreach.ps.security.JwtAuthenticationEntryPoint"/>
+    <beans:bean id="jwtAuthenticationSuccessHandler"
+                class="com.bloomreach.ps.security.JwtAuthenticationSuccessHandler"/>
+    <beans:bean id="jwtAuthenticationProvider" class="com.bloomreach.ps.security.JwtAuthenticationProvider">
+        <beans:property name="jwtUtil" ref="jwtUtil"/>
+    </beans:bean>
+    <beans:bean id="jwtUtil" class="com.bloomreach.ps.security.JwtUtil">
+        <beans:property name="secret" value="${jwt.secret}"/>
+    </beans:bean>
+
+    <beans:bean id="jwtAuthenticationFilter" class="com.bloomreach.ps.security.JwtAuthenticationFilter">
+        <beans:property name="authenticationManager" ref="authenticationManager"/>
+        <beans:property name="authenticationSuccessHandler" ref="jwtAuthenticationSuccessHandler"/>
+    </beans:bean>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider ref="jwtAuthenticationProvider"/>
+    </authentication-manager>
+
+    <beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <beans:property name="location" value="classpath:jwt.properties"/>
+        <!-- IGNORE if not found, otherwise exception is thrown-->
+        <beans:property name="ignoreResourceNotFound" value="true"/>
+        <beans:property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+        <beans:property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </beans:bean>
+
+</beans:beans>

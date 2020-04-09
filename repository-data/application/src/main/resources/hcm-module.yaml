@@ -1,0 +1,6 @@
+group:
+  name: brxm-jwt-sso
+  after: hippo-cms
+project: brxm-jwt-sso
+module:
+  name: brxm-jwt-sso-repository-data-application

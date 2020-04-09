@@ -1,0 +1,7 @@
+/content/gallery/brxmjwtsso:
+  jcr:primaryType: hippogallery:stdImageGallery
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 79ca4259-f6d4-4bfb-b515-e3267f596bc9
+  hippo:name: JWT SSO implementation for brXM
+  hippostd:foldertype: [new-image-folder]
+  hippostd:gallerytype: ['hippogallery:imageset']

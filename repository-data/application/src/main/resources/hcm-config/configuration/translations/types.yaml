@@ -1,0 +1,78 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:translations/hippo:types/brxmjwtsso:bannerdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        brxmjwtsso:content: Content
+        brxmjwtsso:image: Image
+        brxmjwtsso:link: Link
+        brxmjwtsso:title: Title
+        jcr:name: Banner
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        brxmjwtsso:content: Inhoud
+        brxmjwtsso:image: Afbeelding
+        brxmjwtsso:link: Link
+        brxmjwtsso:title: Titel
+        jcr:name: Banner
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        brxmjwtsso:content: Contenu
+        brxmjwtsso:image: Image
+        brxmjwtsso:link: Lien
+        brxmjwtsso:title: Titre
+        jcr:name: Bannière
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        brxmjwtsso:content: Inhalt
+        brxmjwtsso:image: Abbildung
+        brxmjwtsso:link: Link
+        brxmjwtsso:title: Titel
+        jcr:name: Banner
+    /hippo:configuration/hippo:translations/hippo:types/brxmjwtsso:newsdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        brxmjwtsso:author: Author
+        brxmjwtsso:content: Content
+        brxmjwtsso:date: Date
+        brxmjwtsso:image: Image
+        brxmjwtsso:introduction: Introduction
+        brxmjwtsso:location: Location
+        brxmjwtsso:source: Source
+        brxmjwtsso:title: Title
+        jcr:name: News Item
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        brxmjwtsso:author: Auteur
+        brxmjwtsso:content: Inhoud
+        brxmjwtsso:date: Datum
+        brxmjwtsso:image: Afbeelding
+        brxmjwtsso:introduction: Introductie
+        brxmjwtsso:location: Locatie
+        brxmjwtsso:source: Bron
+        brxmjwtsso:title: Titel
+        jcr:name: Nieuwsbericht
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        brxmjwtsso:author: Verfasser
+        brxmjwtsso:content: Inhalt
+        brxmjwtsso:date: Datum
+        brxmjwtsso:image: Abbildung
+        brxmjwtsso:introduction: Einführung
+        brxmjwtsso:location: Standort
+        brxmjwtsso:source: Quelle
+        brxmjwtsso:title: Titel
+        jcr:name: News
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        brxmjwtsso:author: Auteur
+        brxmjwtsso:content: Contenu
+        brxmjwtsso:date: Date
+        brxmjwtsso:image: Image
+        brxmjwtsso:introduction: Introduction
+        brxmjwtsso:location: Lieu
+        brxmjwtsso:source: Source
+        brxmjwtsso:title: Titre
+        jcr:name: Message d'info

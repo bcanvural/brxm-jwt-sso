@@ -1,0 +1,5 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:security/jwt:
+      jcr:primaryType: hipposys:securityprovider
+      hipposys:classname: com.bloomreach.ps.security.JwtDelegatingSecurityProvider

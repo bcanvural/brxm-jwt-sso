@@ -1,0 +1,8 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/admin:
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [bariscan.vural@bloomreach.com, bariscan.vural@bloomreach.com]

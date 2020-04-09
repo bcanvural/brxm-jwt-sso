@@ -1,0 +1,5 @@
+group:
+  name: brxm-jwt-sso
+project: brxm-jwt-sso
+module:
+  name: brxm-jwt-sso-repository-data-webfiles

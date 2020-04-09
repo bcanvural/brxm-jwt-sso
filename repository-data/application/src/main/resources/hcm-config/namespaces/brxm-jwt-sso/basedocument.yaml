@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hippo:namespaces/brxmjwtsso/basedocument:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 44d5142c-5d7a-454b-a8b5-213342adc1dd
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 5f9d06d0-749e-41f6-b36e-fe8c503bd60b
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['hipposysedit:remodel']
+          hipposysedit:supertype: ['hippo:document', 'hippostdpubwf:document', 'hippostd:publishableSummary']
+          hipposysedit:uri: http://www.brxmjwtsso.com/brxmjwtsso/nt/1.0
